@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="AztecDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Nullable="false" Type="int" />
+    <Property Name="CustomerName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="CustomerContactNumber" Nullable="false" MaxLength="15" Type="char" />
+    <Property Name="CustomerEmailAddress" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Date" Nullable="false" Type="date" />
+    <Property Name="Description" Nullable="false" Type="varchar(max)" />
+    <Property Name="Price" Nullable="false" Type="money" />
+  </EntityType>
+  <EntityType Name="Cinemas">
+    <Key>
+      <PropertyRef Name="CinemaID" />
+    </Key>
+    <Property Name="CinemaID" Nullable="false" Type="int" />
+    <Property Name="CinemaName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="ContactNumber" Nullable="false" MaxLength="15" Type="char" />
+    <Property Name="Address" Nullable="false" MaxLength="100" Type="varchar" />
+    <Property Name="Latitude" Type="float" />
+    <Property Name="Longitude" Type="float" />
+  </EntityType>
+  <EntityType Name="ComingSoonMovie">
+    <Key>
+      <PropertyRef Name="ComingMovieID" />
+    </Key>
+    <Property Name="ComingMovieID" Nullable="false" Type="int" />
+    <Property Name="ComingSoonMovies" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Date" Nullable="false" Type="date" />
+    <Property Name="MovieReview" MaxLength="150" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="SeatNo" />
+    </Key>
+    <Property Name="SeatNo" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="SeatStatus" Nullable="false" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="ShowingMovie">
+    <Key>
+      <PropertyRef Name="ShowingMovieID" />
+    </Key>
+    <Property Name="ShowingMovieID" Nullable="false" Type="int" />
+    <Property Name="MovieName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="ShowTime" Nullable="false" Precision="7" Type="time" />
+    <Property Name="Cinemas" Nullable="false" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TicketBooking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Nullable="false" Type="int" />
+    <Property Name="MovieName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Date" MaxLength="50" Type="varchar" />
+    <Property Name="SeatNo" Nullable="false" MaxLength="15" Type="varchar" />
+    <Property Name="SeatStatus" Nullable="false" MaxLength="10" Type="varchar" />
+    <Property Name="CustomerName" MaxLength="50" Type="varchar" />
+    <Property Name="PhoneNumber" MaxLength="15" Type="varchar" />
+  </EntityType>
+  <EntityType Name="User_Profile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="UserName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Password" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="FullName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="EmailAddress" Nullable="false" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityContainer Name="AztecDatabaseModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cinemas" EntityType="Self.Cinemas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComingSoonMovie" EntityType="Self.ComingSoonMovie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seat" EntityType="Self.Seat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShowingMovie" EntityType="Self.ShowingMovie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketBooking" EntityType="Self.TicketBooking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Profile" EntityType="Self.User_Profile" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

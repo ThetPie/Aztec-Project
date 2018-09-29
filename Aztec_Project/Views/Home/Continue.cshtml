@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Continue";
+}
+
+<h2>Continue</h2>
+@if (Session["UserName"] != null)
+{
+    <text>
+        Welcome @Session["UserName"].ToString()
+    </text>
+}
+

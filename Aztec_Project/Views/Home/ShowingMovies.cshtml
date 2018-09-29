@@ -1,0 +1,96 @@
+﻿@model Aztec_Project.Models.ShowingMovie
+
+@{
+    Layout = null;
+    var image = "../Image/" + @Model.ShowingMovieID + ".jpg";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinema Detail</title>
+
+    <!-- css  -->
+    <!-- Bootstrap 4 -->
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">*@
+    <!-- simplebar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+    <!-- ugarit css -->
+    <link href="~/Content/sgrid.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/sidebar.css" />
+
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-social.css" rel="stylesheet">
+
+    <style>
+        .brand .btn {
+            width: 130px;
+        }
+
+    </style>
+
+</head>
+
+<body class="background">
+    <!-- page -->
+    <div class="page-container">
+        <!-- ======================
+         left side
+         ======================= -->
+        <div class="left-side">
+            <!-- brand -->
+            <div class="brand">
+                <h5>Click "Book the ticket" to make booking.</h5>
+                @Html.ActionLink("Book the ticket", "Detail", "Home", new { SMN = @Model.MovieName}, new { @class = "btn btn-reddit text-center" })
+                <br /><br />
+                <h5> Go back to the previous page to see more movies.</h5>
+                @Html.ActionLink("Go Back", "MoreSMovies", "Home", null, new { @class = "btn btn-github text-center" })
+            </div>
+        </div><!-- / .left-side -->
+        <!-- ======================
+         right side
+         ======================= -->
+        <div class="right-side">
+            <!-- wall -->
+            <div class="wall" data-simplebar>
+
+                <!-- ======================
+                  intro
+                ======================= -->
+                <div class="section intro" id="intro">
+                    <h2></h2>
+                    <img src="@image">
+                    <br />
+                    <br />
+                    <div>
+                        <h5 class="text-info">Movie Title <i class="fa fa-film" style="font-size:24px"></i></h5>
+                        <h6>@Model.MovieName</h6>
+                        <h5 class="text-info">Movie Show Time <i class="fa fa-phone" style="font-size:24px"></i></h5>
+                        <h6>@Model.ShowTime</h6>
+                        <h5 class="text-info">Screening Cinemas <i class="fa fa-map-marker" style="font-size:24px"></i></h5>
+                        <h6>@Model.Cinemas</h6>
+                    </div>
+                </div><!-- / .intro -->
+                <!-- ======================
+                   section
+                 ======================= -->
+
+            </div><!-- / .wall -->
+        </div><!-- / .left-side -->
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+    <script src="~/Script/js/jquery.js"></script>
+    <script src="~/Script/js/docs.js"></script>
+
+</body>
+</html>

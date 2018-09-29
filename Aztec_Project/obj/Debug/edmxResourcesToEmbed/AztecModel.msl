@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AztecDatabaseModelStoreContainer" CdmEntityContainer="AztecDatabaseEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerContactNumber" ColumnName="CustomerContactNumber" />
+          <ScalarProperty Name="CustomerEmailAddress" ColumnName="CustomerEmailAddress" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinemas">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.Cinema">
+        <MappingFragment StoreEntitySet="Cinemas">
+          <ScalarProperty Name="CinemaID" ColumnName="CinemaID" />
+          <ScalarProperty Name="CinemaName" ColumnName="CinemaName" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComingSoonMovies">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.ComingSoonMovie">
+        <MappingFragment StoreEntitySet="ComingSoonMovie">
+          <ScalarProperty Name="ComingMovieID" ColumnName="ComingMovieID" />
+          <ScalarProperty Name="ComingSoonMovies" ColumnName="ComingSoonMovies" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShowingMovies">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.ShowingMovie">
+        <MappingFragment StoreEntitySet="ShowingMovie">
+          <ScalarProperty Name="ShowingMovieID" ColumnName="ShowingMovieID" />
+          <ScalarProperty Name="MovieName" ColumnName="MovieName" />
+          <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+          <ScalarProperty Name="Cinemas" ColumnName="Cinemas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

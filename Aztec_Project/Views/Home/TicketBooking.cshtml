@@ -1,0 +1,186 @@
+﻿@model Aztec_Project.Models.TicketBooking
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Movie Ticket Booking Widget Flat Responsive Widget Template :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Movie Ticket Booking Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //for-mobile-apps -->
+    <link href='https://fonts.googleapis.com/css?family=Kotta+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/jquery.seat-charts.js"></script>
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: url(../Image/banner2.jpg) no-repeat center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            -ms-background-size: cover;
+            -moz-background-size: cover;
+            font-family: 'Karla', sans-serif !important;
+        }
+
+        .book-right .book-left {
+            margin-top: 100px;
+        }
+
+        .book-right select{ 
+            width:95%;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .checkout-button{
+            margin-top:150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Select the seats and Book for them</h1>
+        <div class="main">
+            <h2>JCGV Junction Square (Cinema 1)</h2>
+            <div class="demo">
+                <div id="seat-map">
+                    <div class="front">SCREEN</div>
+                </div>
+                <div class="booking-details">
+                    @*@using (Html.BeginForm("Booking", "Home", FormMethod.Post, new { @class = "login-form"}))*@
+                    <ul class="book-left">  
+                        <li>Movie </li>
+                        <li>Time </li>
+                        <li>Seat</li>
+                        @*<li>Total</li>
+                        <li>Selected Seats :</li>*@
+                    </ul>
+                    <ul class="book-right">
+                        <li>: @Html.DropDownList("MovieName", (IEnumerable<SelectListItem>)ViewData["aa"])  </li>
+                        <li>: @Html.DropDownList("Date", (IEnumerable<SelectListItem>)ViewData["d"])</li>
+                        <li>: @Html.DropDownList("SeatNo", (IEnumerable<SelectListItem>)ViewData["a"])</li>    
+                    </ul>
+
+                    @*<div class="form-group">
+                        @Html.Label("Enter Your Name")
+                        @Html.TextBox("customername", null, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Enter Your Phone Number")
+                        @Html.TextBox("phonenumber", null, new { @class = "form-control" })
+                    </div>*@
+
+                    <button class="checkout-button">Book Now</button>
+                    <div id="legend"></div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+
+            <script type="text/javascript">
+                var price = 3000; //price
+                $(document).ready(function () {
+                    var $cart = $('#selected-seats'), //Sitting Area
+					$counter = $('#counter'), //Votes
+					$total = $('#total'); //Total money
+
+                    var sc = $('#seat-map').seatCharts({
+                        map: [  //Seating chart
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'__________',
+							'aaaaaaaa__',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'aaaaaaaaaa',
+							'__aaaaaa__'
+                        ],
+                        naming: {
+                            top: false,
+                            getLabel: function (character, row, column) {
+                                return column;
+                            }
+                        },
+                        legend: { //Definition legend
+                            node: $('#legend'),
+                            items: [
+								['a', 'available', 'Available'],
+								['a', 'unavailable', 'Sold'],
+								['a', 'selected', 'Selected']
+                            ]
+                        },
+                        click: function () { //Click event
+                            if (this.status() == 'available') { //optional seat
+                                $('<li>Row' + (this.settings.row + 1) + ' Seat' + this.settings.label + '</li>')
+									.attr('id', 'cart-item-' + this.settings.id)
+									.data('seatId', this.settings.id)
+									.appendTo($cart);
+
+                                $counter.text(sc.find('selected').length + 1);
+                                $total.text(recalculateTotal(sc) + price);
+
+                                return 'selected';
+                            } else if (this.status() == 'selected') { //Checked
+                                //Update Number
+                                $counter.text(sc.find('selected').length - 1);
+                                //update totalnum
+                                $total.text(recalculateTotal(sc) - price);
+
+                                //Delete reservation
+                                $('#cart-item-' + this.settings.id).remove();
+                                //optional
+                                return 'available';
+                            } else if (this.status() == 'unavailable') { //sold
+                                return 'unavailable';
+                            } else {
+                                return this.style();
+                            }
+                        }
+                    });
+                    //sold seat
+                    sc.get(['1_4', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8', '10_1', '10_2']).status('unavailable');
+
+
+                });
+
+                //sum total money
+                function recalculateTotal(sc) {
+                    var total = 0;
+                    sc.find('selected').each(function () {
+                        total += price;
+                    });
+
+                    return total;
+                }
+
+                //voucher release
+
+
+
+
+
+            </script>
+        </div>
+
+    </div>
+
+</body>
+</html>

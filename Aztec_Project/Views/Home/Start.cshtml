@@ -1,0 +1,96 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Start</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body, h1 {
+            font-family: "Karla", sans-serif;
+        }
+
+        body, html {
+            padding-top: 0;
+        }
+
+        .bgimg {
+            background-image: url('../Image/Film.jpg');
+            min-height:750px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid rgb(255, 255, 255);
+            box-shadow: 3px 3px 3px 3px black;
+            margin-left: 35px;
+            padding: 10px 50px;
+            font-family: 'Karla', sans-serif;
+            color: white;
+            width: 40%;
+        }
+
+            .btn:hover {
+                border: #252525;
+                box-shadow: 3px 3px 3px 3px black;
+                background-color: white;
+                color: black;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .container .btn{
+                background-color:green;
+                box-shadow: none;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-animate-top">Welcome To Aztec</h1>
+            <div class="button text-center">
+                @Html.ActionLink("Signup", "Register", "Home", null, new { @class = "btn btn-default"})
+                @Html.ActionLink("Login", "Login", "Home", null, new { @class = "btn btn-default" })
+                @*<button type="button" class="btn btn-default" onclick="document.getElementById('id01').style.display='block'"> Sign up</button>
+                <button type="button" class="btn btn-default" onclick="document.getElementById('id01').style.display='block'"> Login </button>*@
+            </div>
+            <br />
+            <p class="text-info text-center">You must login or signup before visiting to our website</p>
+        </div>
+    </div>
+  
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

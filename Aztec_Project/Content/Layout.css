@@ -1,0 +1,229 @@
+body {
+      font: 400 15px 'Karla', sans-serif;
+      font-family: 'Karla', sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #000000;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }  
+
+  .jumbotron {
+      background-color: #181818;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: 'Karla', sans-serif;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+      background: white;
+  }
+
+.container{
+  width: 100%;
+}
+
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: black;
+      font-size: 50px;
+  }
+  .logo {
+      color: #1b1a1a;
+      font-size: 200px;
+  }
+
+  .input-group {
+    width: 50%;
+    margin-left: 14%;
+  }
+
+  .input-group-btn .btn{
+      background-color: hsl(133, 83%, 21%);
+      border-color: #fff;
+      color: #f3f0ef;
+      float: left;
+  }
+
+  .input-group-btn .btn:hover{
+    background-color: hsl(120, 1%, 17%);
+    border-color: #fff;
+    color: #f3f0ef;
+    float: left;
+}
+
+  .input-group .form-control{
+    width: 50%;
+    margin-left: 30%;
+    float: right;
+  }
+
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #242222;
+  } 
+  .carousel-indicators li {
+      border-color: #2b2b2b;
+  }
+  .carousel-indicators li.active {
+      background-color: #161616;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #1d1c1c; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #1f1f1f;
+      background-color: rgb(185, 179, 179) !important;
+      color: #f0ebea;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #030100 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #1a1918;
+      color: #fff;
+  }
+  .navbar {
+    width: 100%;
+      margin-left: 0;
+      margin-top: 0;
+      background-color: #181818;
+      z-index: 9999;
+      border: 0;
+      font-size: 16px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: 'Karla', sans-serif;;
+  }
+
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: rgb(2, 2, 2) !important;
+      background-color: rgb(240, 238, 238) !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+
+  #sign{
+    float: right;
+    margin-left: 100px;
+    margin-right: 1px;
+  }
+
+  #myNavbar{
+    width: 100%;
+  }
+
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f3f0ef;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+
+  

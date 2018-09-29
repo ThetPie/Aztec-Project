@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AztecDatabaseModelStoreContainer" CdmEntityContainer="AztecDatabaseEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerContactNumber" ColumnName="CustomerContactNumber" />
+          <ScalarProperty Name="CustomerEmailAddress" ColumnName="CustomerEmailAddress" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinemas">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.Cinema">
+        <MappingFragment StoreEntitySet="Cinemas">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="CinemaID" ColumnName="CinemaID" />
+          <ScalarProperty Name="CinemaName" ColumnName="CinemaName" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComingSoonMovies">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.ComingSoonMovie">
+        <MappingFragment StoreEntitySet="ComingSoonMovie">
+          <ScalarProperty Name="MovieReview" ColumnName="MovieReview" />
+          <ScalarProperty Name="ComingMovieID" ColumnName="ComingMovieID" />
+          <ScalarProperty Name="ComingSoonMovies" ColumnName="ComingSoonMovies" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShowingMovies">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.ShowingMovie">
+        <MappingFragment StoreEntitySet="ShowingMovie">
+          <ScalarProperty Name="ShowingMovieID" ColumnName="ShowingMovieID" />
+          <ScalarProperty Name="MovieName" ColumnName="MovieName" />
+          <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+          <ScalarProperty Name="Cinemas" ColumnName="Cinemas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seats">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.Seat">
+        <MappingFragment StoreEntitySet="Seat">
+          <ScalarProperty Name="SeatStatus" ColumnName="SeatStatus" />
+          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketBookings">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.TicketBooking">
+        <MappingFragment StoreEntitySet="TicketBooking">
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="SeatStatus" ColumnName="SeatStatus" />
+          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MovieName" ColumnName="MovieName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Profile">
+      <EntityTypeMapping TypeName="AztecDatabaseModel.User_Profile">
+        <MappingFragment StoreEntitySet="User_Profile">
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

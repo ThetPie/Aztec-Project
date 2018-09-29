@@ -1,0 +1,126 @@
+﻿@model Aztec_Project.Models.Cinema
+
+@{
+    Layout = null;
+    var image = "../Image/" + @Model.CinemaName + ".jpg";
+    var Latitude = @Model.Latitude;
+    var Longitude = @Model.Longitude;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinema Detail</title>
+
+    <!-- css  -->
+    <!-- Bootstrap 4 -->
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">*@
+    <!-- simplebar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+    <!-- ugarit css -->
+    <link href="~/Content/sgrid.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/sidebar.css" />
+
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-social.css" rel="stylesheet">
+
+    <style>
+        .brand .btn {
+            width: 130px;
+        }
+    </style>
+
+</head>
+
+<body class="background">
+
+    <!-- page -->
+    <div class="page-container">
+        <!-- ======================
+         left side
+         ======================= -->
+        <div class="left-side">
+            <!-- brand -->
+            <div class="brand">
+                <h4>Please, Go back to the previous page to see more cinemas.</h4>
+                @Html.ActionLink("Go Back", "More", "Home", null, new { @class = "btn btn-github text-center" })
+                <a href="https://www.facebook.com/"><button type="button" class="btn btn-facebook"><i class="fa fa-facebook pr-1"></i> Facebook</button></a>
+
+</div>
+        </div><!-- / .left-side -->
+        <!-- ======================
+         right side
+         ======================= -->
+        <div class="right-side">
+            <!-- wall -->
+            <div class="wall" data-simplebar>
+
+                <!-- ======================
+                  intro
+                ======================= -->
+                <div class="section intro" id="intro">
+                    <h2></h2>
+                    <img src="@image">
+                <br />
+                <br />
+                    <div>
+                        <h5 class="text-info">Cinema Name <i class="fa fa-film" style="font-size:24px"></i></h5>
+                        <h6>@Model.CinemaName</h6>
+                        <h5 class="text-info">Contact Number <i class="fa fa-phone" style="font-size:24px"></i></h5>
+                        <h6>@Model.ContactNumber</h6>
+                        <h5 class="text-info">Address <i class="fa fa-map-marker" style="font-size:24px"></i></h5>
+                        <h6>@Model.Address</h6>
+                    </div>
+
+                    <p class="text-muted">You can scrolldown to view on Map</p>
+                    <a href="#map"><i class="fa fa-angle-double-down"></i> </a>
+                </div><!-- / .intro -->
+                <!-- ======================
+                   section
+                 ======================= -->
+                <div class="section" id="#">
+                    <div id="map" style="height:800px;width:100%;"></div>
+
+                    <script>
+                        function myMap() {
+                            var Latitude = Number(@Latitude);
+                            var Longitude = Number(@Longitude);
+                            var myCenter = new google.maps.LatLng(Latitude, Longitude);
+                            var mapCanvas = document.getElementById("map");
+                            var mapOptions = { center: myCenter, zoom: 18, scrollwheel: false };
+                            var map = new google.maps.Map(mapCanvas, mapOptions);
+                            var marker = new google.maps.Marker({ position: myCenter });
+                            marker.setMap(map);
+                            google.maps.event.addListener(marker, 'click', function () {
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: "Hello World!"
+                                });
+                                infowindow.open(map, marker);
+                            });
+                        }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfQYMDZmPiwX39MM3jHU5IPj5FmAU23gE&callback=myMap"></script>
+                </div><!-- / .sections -->
+
+
+
+            </div><!-- / .wall -->
+        </div><!-- / .left-side -->
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+    <script src="~/Script/js/jquery.js"></script>
+    <script src="~/Script/js/docs.js"></script>
+
+</body>
+</html>
+

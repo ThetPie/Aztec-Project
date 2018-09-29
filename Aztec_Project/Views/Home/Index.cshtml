@@ -1,0 +1,489 @@
+﻿@{
+    Layout = null;
+    Response.Headers["X-UA-Compatible"] = "IE=10";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/Footer-with-map.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Layout.css" />
+    <script src="Scripts/Layout.js"></script>
+
+    <style>
+        html {
+            font-family: 'Karla', sans-serif;
+        }
+
+        .container-fluid {
+            padding: 160px 150px;
+            background: black;
+        }
+
+        body .navbar-default {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 0;
+            background-color: #181818;
+            z-index: 9999;
+            border: 0;
+            font-size: 16px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: 'Karla', sans-serif;
+        }
+
+        body .jumbotron {
+            background-color: #181818;
+            color: #fff;
+            padding: 100px 25px;
+            font-family: 'Karla', sans-serif;
+        }
+
+        .jumbotron .btn-danger {
+            margin-top: 7px;
+        }
+
+        #contact #email {
+            margin-top: 6px;
+        }
+
+        ul #username {
+            text-decoration-style: none;
+            background-color: #50d743;
+            border-radius: 500px;
+            margin-left: 100px;
+        }
+
+        #myFooter #id {
+            color: black;
+        }
+    </style>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Aztec", "Start", "Home", null, new { @class = "navbar-brand" })
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#services">Showing Movies</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio">Cinemas</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li id="username">
+                        <a>@Session["UserName"]</a>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Logout", "Logout", "Home")
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <img src="Image/Aztec.png" style="width: 10%;height: auto">
+        <p>Makes your life easier</p>
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" size="10" placeholder="Search" required>
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="about" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>About Aztec</h2><br>
+                <h4>Aztec has been developed in order to make easier for users who are facing with some problems to make booking for cinema tickets. Aztec is one of the onlilne booking systems where users can find cinemas from Yangon, showing movies or coming soon movies at Yangon's cinemas, and they can also book tickets here.</h4><br>
+                <p>Users are able to find which movies are being shown in which cinemas at Yangon and they can also make booking without having any problem from their homes. However, unfortunately it's not available for other regions, Mandalay, Mawlamyaing, Taunggyi, etc.</p>
+
+            </div>
+            <div class="col-sm-4">
+                <img src="Image/Aztec.png" style="width:100%; margin-left: 40px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="../Image/mis.png">
+            </div>
+            <div class="col-sm-8">
+                <h2>Our Values</h2><br>
+                <h4><strong>MISSION:</strong> The mission of developing Aztec Online Cinema Ticket Booking is for users who are too busy to go outside for buying tickets, but if they don't want to miss the chance to spend their time with their family, friends, they can make their life easier with Aztec. They will just need a couple of minute to complete the booking at any cinema for any movie. So, the major goal of Aztec is to make people more comfortable.</h4><br>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (Showing Movie Section) -->
+    <div id="services" class="container-fluid text-center">
+        <h2>Showing Movies in Yangon This Week</h2>
+        <h4>20 Sep 2018 - 2 Oct 2018</h4>
+        <br>
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <a href="#"><img src="../Image/alg.jpg" style="width: 33.33%; height: 40%;"></a>
+                <h4>
+                    <a href="#" class="showmov">Along with the Gods: The Last 49 Days</a>
+                </h4>
+                <p>
+                    Along with the Gods: The Last 49 Days is now showing in Yangon from 17th to 23rd August 2018. Along with the Gods:
+                    The Last...
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><img src="../Image/Diary.jpg" style="width: 33.33%; height: 40%;"></a>
+                <h4>
+                    <a href="#" class="showmov">Lu Gyan Ta Yout Yae Diary</a>
+                </h4>
+                <p>Lu Gyan Ta Yout Yae Diary is now showing in Yangon from 17th to 23rd August 2018. Lu Gyan Ta Yout Yae Diary is Burmese...</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><img src="../Image/meg.jpg" style="width: 33.33%; height:215px;"></a>
+                <h4>
+                    <a href="#" class="showmov">The MEG</a>
+                </h4>
+                <p>The MEG is now showing in Yangon from 17th to 23rd August 2018. The Meg is a 2018 science...</p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <a href="#"><img src="../Image/mamma.jpg" style="width: 33.33%; height:215px;"></a>
+                <h4>
+                    <a href="#" class="showmov">Mamma Mia</a>
+                </h4>
+                <p>
+                    Mamma Mia is now showing in Yangon from 17th to 23rd August 2018. Mamma Mia is a 2018 jukebox musical romantic comedy
+                    film. It is...
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><img src="../Image/co2.jpg" style="width: 33.33%; height:215px;"></a>
+                <h4>
+                    <a href="#" class="showmov">C02 (Carbon Dioxide)</a>
+                </h4>
+                <p>CO2 (Carbon Dioxide) is now showing in Yangon from 17th to 23rd August 2018. O2 (Carbon Dioxide) is Burmese...</p>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><img src="../Image/cra.jpg" style="width: 33.33%; height:215px;"></a>
+                <h4>
+                    <a href="#" class="showmov">Crazy Rich Asians</a>
+                </h4>
+                <p>Crazy Rich Asians is now showing in Yangon from 17th to 23rd August 2018. Crazy Rich Asians is a romantic...</p>
+            </div>
+        </div>
+        <br> @Html.ActionLink("View More Movies", "MoreSMovies", "Home", null, new { @class = "btn btn-success" })
+
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div id="portfolio" class="container-fluid text-center bg-grey">
+        <h2>Cinemas in Yangon</h2>
+        <br>
+        <h4 class="text-muted">It's only available for Yangon !</h4>
+        <div class="row text-center slideanim">
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="../Image/Mingalar Sanpya Cineplex.jpg" alt="Mingalar Cinmas" style="width: 500px;height: 300px">
+                    <p>
+                        <strong>Mingalar Cinemas</strong>
+                    </p>
+                    <br>@Html.ActionLink("View More Cinemas", "More", "Home", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="../Image/JCGV (City Mall).jpg" alt="JCGV Cinemas" style="width: 500px;height: 300px">
+                    <p>
+                        <strong>JCGV Cinemas</strong>
+                    </p>
+                    <br>@Html.ActionLink("View More Cinemas", "More", "Home", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="../Image/Nay Pyi Taw Cinema.jpg" alt="Nay Pyi Taw Cinema" style="width: 500px;height: 300px">
+                    <p>
+                        <strong>Nay Pyi Taw Cinema</strong>
+                    </p>
+                    <br>@Html.ActionLink("View More Cinemas", "More", "Home", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <img src="../Image/Mega Ace.jpg" alt="Mega Ace Cinemas" style="width: 500px;height: 300px">
+                    <p>
+                        <strong>Mega Ace Cinema</strong>
+                    </p>
+                    <br>@Html.ActionLink("View More Cinemas", "More", "Home", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+        </div>
+
+        <h2>What our customers say</h2>
+        <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <h4>
+                        "This website is awesome!"
+                        <br>
+                        <span>Thet Maung Maung Toe</span>
+                    </h4>
+                </div>
+                <div class="item">
+                    <h4>
+                        "One word... WOW!!"
+                        <br>
+                        <span>San Myint Oo</span>
+                    </h4>
+                </div>
+                <div class="item">
+                    <h4>
+                        "It makes my life better...!"
+                        <br>
+                        <span>Oeshi</span>
+                    </h4>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-white">
+        <h2 class="text-center">CONTACT</h2>
+        <div class="row">
+            <div class="col-sm-5">
+                <p>Contact us and we'll get back to you within 24 hours.</p>
+                <p>
+                    <span class="glyphicon glyphicon-map-marker"></span> Pazundaung, Yangon
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-phone"></span> +95 254126294
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-envelope"></span> oeshi.dec412@gmail.com
+                </p>
+            </div>
+            <div class="col-sm-7 slideanim">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                    </div>
+                </div>
+                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <button class="btn btn-default pull-right" type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Website Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#about">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add Google Maps -->
+            <div id="map" style="height:400px;width:100%;"></div>
+            <script>
+
+                function myMap() {
+                    var myLatLng = {
+                        lat: 16.777978, lng: 96.171606
+                    };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: myLatLng,
+                        zoom: 18,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        scrollwheel: true
+                    });
+
+                    // Create a marker and set its position.
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: myLatLng,
+                        title: 'Please allow your setting to see your current locaiton !'
+                    });
+
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            }
+
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                draggable: true,
+                                animation: google.maps.Animation.BOUNCE,
+                                position: pos,
+                                title: "Location Found !"
+                            });
+
+                            map.setCenter(pos);
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: "We're here!"
+                            });
+                            infowindow.open(map, marker);
+                        });
+                    }
+                    else {
+                        alert("Location not found")
+                    }
+                }
+
+                function toggleBounce() {
+                    if (marker.getAnimation() !== null) {
+                        marker.setAnimation(null);
+                    } else {
+                        marker.setAnimation(google.maps.Animation.BOUNCE);
+                    }
+                }
+
+                var slideIndex = 1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                    var i;
+                    var slides = document.getElementsByClassName("pagination");
+                    if (n > slides.length) { slideIndex = 1 }
+                    if (n < 1) { slideIndex = slides.length }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active";
+                    captionText.innerHTML = dots[slideIndex - 1].alt;
+                }
+
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfQYMDZmPiwX39MM3jHU5IPj5FmAU23gE&callback=myMap"></script>
+
+
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2018 Copyright </p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
